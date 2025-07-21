@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WalletConnect</title>
+</head>
+<body>
+  <h3>Connect Wallet</h3>
+  <button onclick="connect()">Connect MetaMask</button>
+  <script>
+    async function connect() {
+      if (window.ethereum) {
+        try {
+          const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+          alert("Connected: " + accounts[0]);
+        } catch (err) {
+          alert("Connection error: " + err.message);
+        }
+      } else {
+        alert("Please install MetaMask.");
+      }
+    }
+  </script>
+</body>
+</html>
